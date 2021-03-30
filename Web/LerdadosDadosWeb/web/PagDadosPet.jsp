@@ -17,22 +17,8 @@
             <title>JSP Page</title>
         </head>
         <body>
-            <h:form>
-                <h:panelGrid columns="2" styleClass="gridCampos">
-                    <h:outputLabel for="txtNome" value="Nome:" />
-                    <h:inputText id="txtNome" value="#{beanArq.pet.nome}" />
-                    <h:outputLabel for="txtEspecie" value="Especie:" />
-                    <h:inputText id="txtEspecie" value="#{beanArq.pet.especie}" />
-                    <h:outputLabel for="txtRaca" value="Raca:" />
-                    <h:inputText id="txtRaca" value="#{beanArq.pet.raca}" />
-                    <h:outputLabel for="txtDataNasc" value="Data Nascimento:" />
-                    <h:inputText id="txtDataNasc" value="#{beanArq.pet.data_nascimento}" />
-                    <h:outputLabel for="txtPorte" value="Porte:" />
-                    <h:inputText id="txtPorte" value="#{beanArq.pet.porte}" />
-                    
-                    <h:commandButton value="Gravar" action="#{beanArq.gravar()}" />
-                </h:panelGrid>
-                
+            <h1>Consulta de Produtos</h1>
+            <h:form>                
                 <h:panelGrid columns="2" styleClass="gridConsulta">
                     <h:selectOneListbox value="#{beanArq.nomeArquivo}">
                         <f:selectItems value="#{beanArq.arquivos}" var="arq"
@@ -43,7 +29,7 @@
                 </h:panelGrid>
                 
                 <h:panelGrid columns="2" styleClass="gridTabela">
-                    <h:dataTable var="arq" value="#{beanArq.lstPet}">
+                    <h:dataTable var="arq" value="#{beanArq.lstPRoduto}">
                         <h:column>
                             <f:facet name="header">
                                 <h:outputLabel value="NOME" />
@@ -52,27 +38,33 @@
                         </h:column>
                         <h:column>
                             <f:facet name="header">
-                                <h:outputLabel value="ESPECIE" />
+                                <h:outputLabel value="MARCA" />
                             </f:facet>
-                            <h:outputText value="#{arq.especie}" />
+                            <h:outputText value="#{arq.marca}" />
                         </h:column>
                         <h:column>
                             <f:facet name="header">
-                                <h:outputLabel value="RAÇA" />
+                                <h:outputLabel value="PREÇO" />
                             </f:facet>
-                            <h:outputText value="#{arq.raca}" />
+                            <h:outputText value="#{arq.preco}" />
                         </h:column>
                         <h:column>
                             <f:facet name="header">
-                                <h:outputLabel value="PORTE" />
+                                <h:outputLabel value="DESCRIÇÃO" />
                             </f:facet>
-                            <h:outputText value="#{arq.porte}" />
+                            <h:outputText value="#{arq.descricao}" />
                         </h:column>
                         <h:column>
                             <f:facet name="header">
-                                <h:outputLabel value="DATA NASCIMENTO" />
+                                <h:outputLabel value="CATEGORIA" />
                             </f:facet>
-                            <h:outputText value="#{arq.data_nascimento}" />
+                            <h:outputText value="#{arq.categoria}" />
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputLabel value="QUANTIDADE" />
+                            </f:facet>
+                            <h:outputText value="#{arq.quantidade}" />
                         </h:column>
                     </h:dataTable>
                 </h:panelGrid>

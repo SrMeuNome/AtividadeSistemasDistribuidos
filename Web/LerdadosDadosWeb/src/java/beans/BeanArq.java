@@ -1,42 +1,35 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package beans;
 
-import classesbo.Arq_LeituraEscrita;
+import classesbo.Arq_Leitura;
 import java.io.IOException;
-import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
-import objetos.Pet;
+import javax.faces.bean.SessionScoped;
+import objetos.Produto;
 
 /**
  *
- * @author SrMeuNome
+ * @author Maxsuel
  */
 @ManagedBean
-@RequestScoped
-public class BeanArq implements Serializable
-{
+@SessionScoped
+public class BeanArq {
 
-    Pet pet;
-    Arq_LeituraEscrita a_LE;
+    Produto produto;
+    Arq_Leitura a_LE;
     String nomeArquivo;
     
-    List<Pet> lstPet = new LinkedList<>();
+    List<Produto> lstProduto = new LinkedList<>();
     
-    public List<Pet> getLstPet()
+    public List<Produto> getLstPRoduto()
     {
-        return lstPet;
+        return lstProduto;
     }
     
-    public void setLstPet(List<Pet> lstPet)
+    public void setLstPet(List<Produto> lstProduto)
     {
-        this.lstPet = lstPet;
+        this.lstProduto = lstProduto;
     }
     
     public String getNomeArquivo()
@@ -49,45 +42,40 @@ public class BeanArq implements Serializable
         this.nomeArquivo = nomeArquivo;
     }
     
-    public Pet getPet()
+    public Produto getProduto()
     {
-        return pet;
+        return produto;
     }
     
-    public void setPet(Pet pet)
+    public void setProduto(Produto produto)
     {
-        this.pet = pet;
+        this.produto = produto;
     }
     
-    public Arq_LeituraEscrita getA_LE()
+    public Arq_Leitura getA_LE()
     {
         return a_LE;
     }
     
-    public void setA_LE(Arq_LeituraEscrita a_LE)
+    public void setA_LE(Arq_Leitura a_LE)
     {
         this.a_LE = a_LE;
     }
     
     public BeanArq()
     {
-        this.setA_LE(new Arq_LeituraEscrita());
-        this.setPet(new Pet());
+        this.setA_LE(new Arq_Leitura());
+        this.setProduto(new Produto());
     }
     
     public void listar() throws IOException
     {
-        lstPet = a_LE.leitura(nomeArquivo);
-    }
-    
-    public void gravar() throws IOException
-    {
-        System.out.println(pet.getNome());
-        a_LE.escrita(pet);
+        lstProduto = a_LE.leitura(nomeArquivo);
     }
     
     public String[] getArquivos()
     {
         return a_LE.getArquivos();
     }
+    
 }
