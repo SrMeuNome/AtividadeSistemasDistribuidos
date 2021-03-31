@@ -132,7 +132,7 @@ public class Principal
                         correct = false;
                     }
                 }
-                produto.setQuantidade(Integer.parseInt(linha));
+                produto.setPreco(Double.parseDouble(linha));
                 
                 //Enviando Produto
                 Gson g = new Gson();

@@ -23,7 +23,7 @@ public class Arq_Leitura
 {
     public List<Produto> leitura(String nomeArq) throws FileNotFoundException, IOException
     {
-        File f = new File("C:\\Users\\SrMeuNome\\Documents\\logsChat" + nomeArq);        
+        File f = new File("C:\\Users\\SrMeuNome\\Documents\\logsChat\\" + nomeArq);        
         //File f = new File("D:\\TesteJava\\" + nomeArq);
         
         FileReader fr = new FileReader(f);
@@ -46,7 +46,7 @@ public class Arq_Leitura
     public String[] getArquivos()
     {
         //File f = new File("C:\\Users\\SrMeuNome\\Documents\\AtividadesPet\\");
-        File f = new File("D:\\TesteJava\\");
+        File f = new File("C:\\Users\\SrMeuNome\\Documents\\logsChat");
         String lst [] = f.list();
         return lst;
     }
